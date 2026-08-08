@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import { assemblyRules, effectLibrary, firstThreeFestivals, killerFeatures, runOfShow, showPillars, visualFormats } from "@/data/show-os";
 import { ShowConstructor } from "./ShowConstructor";
 import styles from "./page.module.css";
@@ -13,9 +14,9 @@ export default function ShowOSPage() {
   return (
     <main className={styles.page}>
       <nav className={styles.nav}>
-        <a href="/studio" className={styles.brand}><i />FESTIVAL STUDIO</a>
+        <Link href="/studio" className={styles.brand}><i />FESTIVAL STUDIO</Link>
         <span>SHOW OPERATING SYSTEM / V0.1</span>
-        <div><a href="/studio/intake">Песни</a><a href="/universe">Канон</a></div>
+        <div><Link href="/studio/show-os/pilot">Пилот</Link><Link href="/studio/intake">Песни</Link><Link href="/universe">Канон</Link></div>
       </nav>
 
       <header className={styles.hero}>
@@ -64,7 +65,7 @@ export default function ShowOSPage() {
         <p>Claude не генерирует весь концерт одним запросом. Он работает главами по пять модулей и получает список уже использованных шуток, предметов и возвратных линий.</p>
       </section>
 
-      <footer className={styles.footer}><a href="/studio">← Festival Studio</a><span>SHOW OS / ЖИВОЙ СБОЙ / 2026</span><a href="/studio/intake">Принять песню →</a></footer>
+      <footer className={styles.footer}><Link href="/studio">← Festival Studio</Link><Link href="/studio/show-os/pilot">Открыть пилот →</Link><Link href="/studio/intake">Принять песню →</Link></footer>
     </main>
   );
 }

@@ -44,3 +44,14 @@ test("server-renders the SHOW OS constructor", async () => {
   assert.match(html, /Claude/);
   assert.match(html, /КОНСТРУКТОР ГЛАВЫ/);
 });
+
+test("server-renders the pilot script and song logic", async () => {
+  const response = await render("/studio/show-os/pilot");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /ЛОГИКА ТРЁХ ПЕСЕН/);
+  assert.match(html, /СЦЕНАРИЙ ПИЛОТА/);
+  assert.match(html, /ПАЛЫЧ\.ROM/);
+  assert.match(html, /00:16:00/);
+});
