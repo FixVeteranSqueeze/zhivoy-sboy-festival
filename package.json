@@ -13,6 +13,7 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "festival:check": "node scripts/validate-track-pack.mjs",
+    "content:check": "node scripts/validate-show-content.mjs",
     "track:new": "node scripts/create-track-pack.mjs",
     "video:studio": "remotion studio video/index.ts",
     "video:render:signal": "remotion render video/index.ts FestivalSignal outputs/festival-signal.mp4 --codec=h264 --crf=18"

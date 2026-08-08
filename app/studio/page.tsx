@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import { artists, productionTiers, trackStatuses, waves } from "@/data/universe";
 import { festival01Slots, pilotBriefs } from "@/data/production";
 import styles from "./page.module.css";
@@ -13,10 +14,10 @@ export default function StudioPage() {
   return (
     <main className={styles.studio}>
       <header className={styles.topbar}>
-        <a href="/" className={styles.logo}><i />FESTIVAL STUDIO</a>
+        <Link href="/" className={styles.logo}><i />FESTIVAL STUDIO</Link>
         <div className={styles.issue}><span>ТЕКУЩИЙ ВЫПУСК</span><strong>#01 · НУЛЕВАЯ ВОЛНА</strong></div>
         <div className={styles.health}><i /> СИСТЕМА ГОТОВА · ТРЕКИ ОЖИДАЮТСЯ</div>
-        <a href="/studio/intake">Приём треков ↗</a>
+        <Link href="/studio/show-os">SHOW OS ↗</Link>
       </header>
 
       <section className={styles.dashboard}>
@@ -33,7 +34,7 @@ export default function StudioPage() {
         </div>
 
         <section className={styles.startNow}>
-          <div><span>START / NOW</span><h2>НЕ ЖДЁМ ВСЕ 60.<br />СТРОИМ НА ТРЁХ.</h2><a href="/studio/intake">Открыть приём песен →</a></div>
+          <div><span>START / NOW</span><h2>НЕ ЖДЁМ ВСЕ 60.<br />СТРОИМ НА ТРЁХ.</h2><Link href="/studio/intake">Открыть приём песен →</Link><Link href="/studio/show-os">Открыть SHOW OS →</Link></div>
           <div className={styles.pilotList}>{pilotBriefs.map((pilot) => <article key={pilot.slotId} style={{ "--pilot": pilot.accent } as CSSProperties}><b>{pilot.tier}</b><span>{pilot.slotId}</span><strong>{pilot.artist}</strong><p>{pilot.task}</p></article>)}</div>
         </section>
 

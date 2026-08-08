@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import { artists, recurringSegments, seasonOne, stages, universeLaws, waves } from "@/data/universe";
 import styles from "./page.module.css";
 
@@ -12,9 +13,9 @@ export default function UniversePage() {
   return (
     <main className={styles.page}>
       <nav className={styles.nav}>
-        <a className={styles.brand} href="/"><i />СЛОИ ОТЗВУКА</a>
+        <Link className={styles.brand} href="/"><i />СЛОИ ОТЗВУКА</Link>
         <div><a href="#laws">Законы</a><a href="#stages">Сцены</a><a href="#artists">Герои</a><a href="#season">Сезон</a></div>
-        <a className={styles.back} href="/">Фестиваль ↗</a>
+        <Link className={styles.back} href="/">Фестиваль ↗</Link>
       </nav>
 
       <header className={styles.hero}>
@@ -102,7 +103,7 @@ export default function UniversePage() {
       <footer className={styles.footer}>
         <div><span>КАНОН 1.0</span><span>20 ГЕРОЕВ</span><span>12 ФЕСТИВАЛЕЙ</span></div>
         <h2>ПЕРВЫЙ СИГНАЛ<br />УЖЕ СОБИРАЕТСЯ.</h2>
-        <div className={styles.footerLinks}><a href="/">Открыть фестиваль ↗</a><a href="/studio">Открыть студию ↗</a></div>
+        <div className={styles.footerLinks}><Link href="/">Открыть фестиваль ↗</Link><Link href="/studio">Открыть студию ↗</Link></div>
       </footer>
     </main>
   );

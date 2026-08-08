@@ -14,6 +14,8 @@ type IntakeArtist = {
 
 type Props = { artists: IntakeArtist[] };
 
+const waveNames = ["Я", "Сбой", "Отзвук"];
+
 export function TrackIntakeBuilder({ artists }: Props) {
   const [artistSlug, setArtistSlug] = useState("severa-9");
   const [wave, setWave] = useState(1);
@@ -29,8 +31,6 @@ export function TrackIntakeBuilder({ artists }: Props) {
 
   const artist = artists.find((item) => item.slug === artistSlug) ?? artists[0];
   const slotId = `JS01_${artist.n}_W${wave}`;
-  const waveNames = ["Я", "Сбой", "Отзвук"];
-
   const manifest = useMemo(() => ({
     schemaVersion: 1,
     slotId,

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sloi-otzvuka.local/schemas/show-module.schema.json",
+  "title": "Живой Сбой — контентный модуль",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "festival", "moduleId", "revision", "status", "title", "kind", "durationSeconds", "pillars", "placement", "characters", "content", "direction", "editorial"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "festival": { "type": "string", "pattern": "^JS[0-9]{2}$" },
+    "moduleId": { "type": "string", "pattern": "^JS[0-9]{2}-M[0-9]{3}$" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["idea", "outline", "draft", "review", "locked", "produced"] },
+    "title": { "type": "string", "minLength": 2, "maxLength": 120 },
+    "kind": { "enum": ["pre-signal", "cold-open", "host-bridge", "support-desk", "character-clash", "fact-lens", "fictional-ad", "micro-comic", "quiet-room", "warm-glitch", "audience-choice", "human-window", "energy-reset", "kindness-action", "collective-overtone"] },
+    "durationSeconds": { "type": "integer", "minimum": 5, "maximum": 480 },
+    "pillars": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["philosophy", "humor", "kindness", "intellect", "energy", "originality", "motivation"] }
+    },
+    "placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["afterSlot", "beforeSlot", "purpose"],
+      "properties": {
+        "afterSlot": { "type": ["string", "null"] },
+        "beforeSlot": { "type": ["string", "null"] },
+        "purpose": { "type": "string", "minLength": 10 }
+      }
+    },
+    "characters": { "type": "array", "maxItems": 4, "items": { "type": "string", "minLength": 2 } },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["premise", "setup", "turn", "payoff", "spokenText", "callbackIn", "callbackOut"],
+      "properties": {
+        "premise": { "type": "string", "minLength": 10 },
+        "setup": { "type": "string" },
+        "turn": { "type": "string" },
+        "payoff": { "type": "string" },
+        "spokenText": { "type": "array", "items": { "type": "object", "required": ["speaker", "text"], "properties": { "speaker": { "type": "string" }, "text": { "type": "string" }, "delivery": { "type": "string" } }, "additionalProperties": false },
+        "callbackIn": { "type": ["string", "null"] },
+        "callbackOut": { "type": ["string", "null"] }
+      }
+    },
+    "direction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visualFormat", "stage", "effects", "camera", "soundCue"],
+      "properties": {
+        "visualFormat": { "type": "string" },
+        "stage": { "type": "string" },
+        "effects": { "type": "array", "maxItems": 4, "items": { "type": "string" } },
+        "camera": { "type": "string" },
+        "soundCue": { "type": "string" }
+      }
+    },
+    "factCheck": {
+      "type": "array",
+      "items": { "type": "object", "required": ["claim", "status"], "properties": { "claim": { "type": "string" }, "status": { "enum": ["not-needed", "pending", "verified", "rejected"] }, "sourceUrl": { "type": ["string", "null"], "format": "uri" } }, "additionalProperties": false }
+    },
+    "editorial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["whyOnlyHere", "kindnessCost", "riskFlags", "humanDecision"],
+      "properties": {
+        "whyOnlyHere": { "type": "string", "minLength": 10 },
+        "kindnessCost": { "type": ["string", "null"] },
+        "riskFlags": { "type": "array", "items": { "type": "string" } },
+        "humanDecision": { "type": "string" }
+      }
+    }
+  }
+}
