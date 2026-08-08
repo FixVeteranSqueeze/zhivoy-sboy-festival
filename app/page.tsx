@@ -1,27 +1,5 @@
 import type { CSSProperties } from "react";
-
-const artists = [
-  { n: "01", name: "СЕВЕРА-9", mark: "С9", role: "Синтетическая метеоролог", genre: "синт-поп · liquid D&B", line: "Я чиню погоду внутри вас", tension: "контроль ↔ чувство", accent: "#d9f3ff" },
-  { n: "02", name: "Савва Корень", mark: "СК", role: "Хранитель певчего сада", genre: "future folk · bass ritual", line: "Старое дерево помнит новый ритм", tension: "традиция ↔ обновление", accent: "#abc878" },
-  { n: "03", name: "Мотя Мох", mark: "ММ", role: "Дух потерянных колыбельных", genre: "cozy pop · folktronica", line: "Тише: уют растёт", tension: "тишина ↔ большая сцена", accent: "#bfe8b1" },
-  { n: "04", name: "Мадам Пауза", mark: "МП", role: "Воплощение секунды тишины", genre: "noir cabaret · trip-hop", line: "Главная нота ещё не прозвучала", tension: "внимание ↔ молчание", accent: "#f0d8e7" },
-  { n: "05", name: "Грохот Петрович", mark: "ГП", role: "Композитор бывших зданий", genre: "industrial rock · heavy folk", line: "Сломаем шум — соберём сердце", tension: "разрушение ↔ созидание", accent: "#ff713f" },
-  { n: "06", name: "Лёля Лазер", mark: "ЛЛ", role: "Художница искусственного рассвета", genre: "acid techno · club pop", line: "Танцпол тоже умеет лечить", tension: "видимость ↔ близость", accent: "#c8ff35" },
-  { n: "07", name: "Сонограф", mark: "СН", role: "Архивариус чужих снов", genre: "ambient · dream pop", line: "Я записываю то, что вам не приснилось", tension: "память ↔ личность", accent: "#8fa7ff" },
-  { n: "08", name: "ПАЛЫЧ.ROM", mark: "PR", role: "Списанный цифровой консьерж", genre: "chiptune · electro-funk", line: "Устарел, но грузится", tension: "служение ↔ свобода", accent: "#45e3e0" },
-  { n: "09", name: "Яра Медянь", mark: "ЯМ", role: "Носительница живой меди", genre: "electro-folk · polyrhythm", line: "Вены города сделаны из меди", tension: "наследие ↔ эксплуатация", accent: "#d98952" },
-  { n: "10", name: "Грави", mark: "G", role: "Юная микропланета", genre: "bubble bass · future R&B", line: "Маленький вес. Большое притяжение", tension: "любовь ↔ удержание", accent: "#b59aff" },
-  { n: "11", name: "Ректор Ржавь", mark: "РР", role: "Ожившая система безопасности", genre: "industrial doom · metal choir", line: "Коррозия — это память металла", tension: "защита ↔ свобода", accent: "#cb6846" },
-  { n: "12", name: "Капитан Кисель", mark: "КК", role: "Самоназначенный командир звёзд", genre: "space lounge · ska", line: "Курс держим по дрожанию!", tension: "легенда ↔ ответственность", accent: "#ff83aa" },
-  { n: "13", name: "Вдова Неона", mark: "ВН", role: "Электрический отпечаток певицы", genre: "synth-noir · slow house", line: "Свет погас. Я осталась", tension: "память ↔ новая жизнь", accent: "#fa4fbd" },
-  { n: "14", name: "Тая Трилица", mark: "Т3", role: "Один голос в трёх масках", genre: "avant-pop · art rock", line: "Одно тело. Три правды", tension: "множественность ↔ цельность", accent: "#ff4f66" },
-  { n: "15", name: "Рута Ремонт", mark: "РМ", role: "Механик музыкальной памяти", genre: "garage rock · breakbeat", line: "Если сердце стучит — оно ещё чинится", tension: "забота ↔ выгорание", accent: "#f0bf4d" },
-  { n: "16", name: "Пуговка Гром", mark: "ПГ", role: "Маленький грозовой дух", genre: "power pop · marching brass", line: "Пристегни облако", tension: "смелость ↔ последствия", accent: "#ffe24a" },
-  { n: "17", name: "Щельник", mark: "Щ", role: "Голос городских зазоров", genre: "grime · dub · field sound", line: "Город говорит между стен", tension: "разделение ↔ связь", accent: "#82ef38" },
-  { n: "18", name: "Флора Факс", mark: "FF", role: "Представительница офисных растений", genre: "office jazz · bossa funk", line: "Ваш запрос пустил корни", tension: "система ↔ живое", accent: "#8ecda4" },
-  { n: "19", name: "Агата Прибой", mark: "АП", role: "Океаническая акустик", genre: "sea folk · choral ambient", line: "Море возвращает голос", tension: "надежда ↔ принятие", accent: "#5ed2cf" },
-  { n: "20", name: "Курьер Край", mark: "КR", role: "Доставщик за краем времени", genre: "D&B · alt rap · post-punk", line: "Доставляю то, что нельзя отправить", tension: "движение ↔ дом", accent: "#ff7e3d" },
-];
+import { artists } from "@/data/universe";
 
 const headliners = artists.filter((artist) => ["01", "04", "09", "11", "14"].includes(artist.n));
 
@@ -46,7 +24,7 @@ export default function Home() {
         </a>
         <div className="nav-links">
           <a href="#lineup">Лайн-ап</a>
-          <a href="#world">Вселенная</a>
+          <a href="/universe">Вселенная</a>
           <a href="#program">Программа</a>
         </div>
         <a className="nav-ticket" href="#signal">Поймать сигнал <span>↘</span></a>
@@ -201,7 +179,7 @@ export default function Home() {
       <footer className="footer shell">
         <a className="brand" href="#top"><span className="brand-dot" /><span>СЛОИ<br />ОТЗВУКА</span></a>
         <p>Оригинальная музыкальная вселенная<br />и фестиваль будущих голосов.</p>
-        <div><span>ЖИВОЙ СБОЙ</span><span>НУЛЕВАЯ ВОЛНА</span><span>2026</span></div>
+        <div><a href="/universe">КАНОН ВСЕЛЕННОЙ</a><a href="/studio">FESTIVAL STUDIO</a><span>2026</span></div>
       </footer>
     </main>
   );
