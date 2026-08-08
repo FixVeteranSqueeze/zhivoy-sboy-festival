@@ -38,3 +38,8 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+*.tsbuildinfo
+
+# Festival masters are large and stay outside Git. Keep manifests and folder markers.
+/production/festival-01/assets/**
+!/production/festival-01/assets/.gitkeep

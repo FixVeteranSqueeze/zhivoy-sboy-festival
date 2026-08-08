@@ -11,7 +11,11 @@
     "start": "vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "festival:check": "node scripts/validate-track-pack.mjs",
+    "track:new": "node scripts/create-track-pack.mjs",
+    "video:studio": "remotion studio video/index.ts",
+    "video:render:signal": "remotion render video/index.ts FestivalSignal outputs/festival-signal.mp4 --codec=h264 --crf=18"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
@@ -28,6 +32,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
     "@vitejs/plugin-rsc": "0.5.26",
+    "@remotion/cli": "4.0.507",
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
     "eslint-plugin-jsx-a11y": "6.10.2",
@@ -35,6 +40,7 @@
     "eslint-plugin-react-hooks": "7.1.1",
     "globals": "16.4.0",
     "react-server-dom-webpack": "19.2.6",
+    "remotion": "4.0.507",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.59.3",

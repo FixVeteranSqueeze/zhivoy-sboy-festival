@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { artists, productionTiers, trackStatuses, waves } from "@/data/universe";
+import { festival01Slots, pilotBriefs } from "@/data/production";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export default function StudioPage() {
         <a href="/" className={styles.logo}><i />FESTIVAL STUDIO</a>
         <div className={styles.issue}><span>ТЕКУЩИЙ ВЫПУСК</span><strong>#01 · НУЛЕВАЯ ВОЛНА</strong></div>
         <div className={styles.health}><i /> СИСТЕМА ГОТОВА · ТРЕКИ ОЖИДАЮТСЯ</div>
-        <a href="/universe">Канон ↗</a>
+        <a href="/studio/intake">Приём треков ↗</a>
       </header>
 
       <section className={styles.dashboard}>
@@ -25,11 +26,16 @@ export default function StudioPage() {
         </div>
 
         <div className={styles.stats}>
-          <article><span>ТРЕКИ</span><strong>00<small>/60</small></strong><i /></article>
+          <article><span>ТРЕКИ</span><strong>00<small>/{festival01Slots.length}</small></strong><i /></article>
           <article><span>АРТИСТЫ</span><strong>20<small>/20</small></strong><i className={styles.full} /></article>
           <article><span>СЦЕНЫ</span><strong>05<small>/05</small></strong><i className={styles.full} /></article>
           <article><span>КАНОН</span><strong>1.0</strong><i className={styles.full} /></article>
         </div>
+
+        <section className={styles.startNow}>
+          <div><span>START / NOW</span><h2>НЕ ЖДЁМ ВСЕ 60.<br />СТРОИМ НА ТРЁХ.</h2><a href="/studio/intake">Открыть приём песен →</a></div>
+          <div className={styles.pilotList}>{pilotBriefs.map((pilot) => <article key={pilot.slotId} style={{ "--pilot": pilot.accent } as CSSProperties}><b>{pilot.tier}</b><span>{pilot.slotId}</span><strong>{pilot.artist}</strong><p>{pilot.task}</p></article>)}</div>
+        </section>
 
         <div className={styles.blockTitle}><div><span>01</span><h2>МАТРИЦА ПЕСЕН</h2></div><p>Пустой слот означает не отсутствие идеи, а готовое место с заранее определённой драматической функцией.</p></div>
 

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "slotId": "JS01_01_W1",
+  "artistSlug": "severa-9",
+  "title": "Название песни",
+  "status": "demo",
+  "source": {
+    "generator": "Suno",
+    "accountTier": "paid",
+    "createdAt": "2026-08-08",
+    "sourceArchived": false
+  },
+  "audio": {
+    "masterFile": "JS01_01_W1_master.wav",
+    "durationSeconds": 0,
+    "bpm": 0,
+    "key": "",
+    "hookStartSeconds": 0,
+    "hookEndSeconds": 0
+  },
+  "editorial": {
+    "lyricsFile": "JS01_01_W1_lyrics.txt",
+    "humanContribution": "",
+    "dramaticFunction": "Я",
+    "explicit": false,
+    "notes": ""
+  },
+  "rights": {
+    "commercialUseConfirmed": false,
+    "realPersonImitationChecked": false,
+    "inputsOwnedOrLicensed": false
+  }
+}
